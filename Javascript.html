@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de tiempo</title>
+</head>
+<body>
+    <p>El contador empezará desde 15 segundos.</p>
+    <p id="contador">Tiempo restante: 15</p>
+
+    <script>
+        var tiempo = 15; // Establecer el tiempo inicial en 15 segundos
+        var contadorElemento = document.getElementById("contador");
+
+        function iniciarContador() {
+            contadorElemento.textContent = "Tiempo restante: " + tiempo;
+            var intervalo = setInterval(function() {
+                tiempo--;
+                contadorElemento.textContent = "Tiempo restante: " + tiempo;
+
+                if (tiempo <= 0) {
+                    clearInterval(intervalo); // Detener el contador
+                    mostrarMensaje();
+                }
+            }, 1000); 
+        }
+
+        function mostrarMensaje() {
+            contadorElemento.textContent = "Bienvenidos al Himalaya!";
+        }
+
+        iniciarContador();
+    </script>
+</body>
+</html>
